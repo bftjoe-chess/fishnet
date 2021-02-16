@@ -1,12 +1,10 @@
-fishnet: distributed Stockfish analysis for lichess.org
-=======================================================
+# fishnet: distributed Stockfish analysis for lichess.org
 
 [![crates.io](https://img.shields.io/crates/v/fishnet.svg)](https://crates.io/crates/fishnet)
 [![Build](https://github.com/niklasf/fishnet/workflows/Build/badge.svg)](https://github.com/niklasf/fishnet/actions?query=workflow%3ABuild)
 [![Docker](https://img.shields.io/docker/cloud/build/niklasf/fishnet)](https://hub.docker.com/r/niklasf/fishnet)
 
-Installation
-------------
+## Installation
 
 1. Request your personal fishnet key: https://lichess.org/get-fishnet
 
@@ -61,15 +59,13 @@ Installation
    With a GitHub account, you can watch this repository (can be set to only
    release announcements). See the top right corner on this page.
 
-Video introduction
-------------------
+## Video introduction
 
 Watch [@arex](https://lichess.org/@/arex) explain fishnet.
 
 [![Video introduction](https://img.youtube.com/vi/C2SjcVbRfp0/0.jpg)](https://youtu.be/C2SjcVbRfp0)
 
-FAQ
----
+## FAQ
 
 ### Which engine does fishnet use?
 
@@ -83,17 +79,18 @@ that the compiled binary matches the source).
 
 ### What are the requirements?
 
-| Available for | 64-bit Intel and AMD | ARMv8 / Silicon |
-| --- | --- | --- |
-| **Linux** | `x86_64-unknown-linux-gnu` | `aarch64-unknown-linux-gnu` |
-| **Windows** | `x86_64-pc-windows-gnu.exe` | |
-| **macOS** | `x86_64-apple-darwin` | `aarch64-apple-darwin` |
+| Available for | 64-bit Intel and AMD        | ARMv8 / Silicon             |
+| ------------- | --------------------------- | --------------------------- |
+| **Linux**     | `x86_64-unknown-linux-gnu`  | `aarch64-unknown-linux-gnu` |
+| **Windows**   | `x86_64-pc-windows-gnu.exe` |                             |
+| **macOS**     | `x86_64-apple-darwin`       | `aarch64-apple-darwin`      |
+| **FreeBSD**   | build from source           |                             |
 
-* Needs an operating system from around 2016 or later
-* Will max out the configured number of CPU cores
-* Uses about 64 MiB RAM per CPU core
-* A small amount of disk space
-* Low-bandwidth network communication with Lichess servers
+- Needs an operating system from around 2016 or later
+- Will max out the configured number of CPU cores
+- Uses about 64 MiB RAM per CPU core
+- A small amount of disk space
+- Low-bandwidth network communication with Lichess servers
   (only outgoing HTTP requests, so probably no firewall configuration
   required)
 
@@ -126,6 +123,9 @@ You can mitigate this by running fishnet as an unprivileged user.
 Stockfish builds are reproducible, so you can verify
 that the distributed binaries match the source.
 
+[`cargo-crev`](https://github.com/crev-dev/cargo-crev) is used to review the
+trustworthiness of dependencies.
+
 ### Is there a leaderboard of contributors?
 
 No, sorry, not publically. It would incentivize gaming the metrics.
@@ -136,16 +136,14 @@ There is currently no ready-made solution, but
 [an API for monitoring the job queue status](https://github.com/niklasf/fishnet/blob/master/doc/protocol.md#status)
 is provided.
 
-Protocol
---------
+## Protocol
 
 ![Sequence diagram](https://raw.githubusercontent.com/niklasf/fishnet/master/doc/sequence-diagram.png)
 
 See [protocol.md](https://github.com/niklasf/fishnet/blob/master/doc/protocol.md) for details.
 Also supports [`SSLKEYLOGFILE`](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format) for inspection at runtime.
 
-License
--------
+## License
 
 fishnet is licensed under the GPLv3+. See LICENSE.txt for the full
 license text.
