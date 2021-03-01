@@ -14,7 +14,7 @@ use serde_with::{serde_as, NoneAsEmptyString, DurationSeconds, DisplayFromStr, S
 use serde_repr::Deserialize_repr as DeserializeRepr;
 use shakmaty::fen::Fen;
 use shakmaty::uci::Uci;
-use shakmaty::variants::Variant;
+use shakmaty::variant::Variant;
 use crate::assets::EvalFlavor;
 use crate::configure::{Endpoint, Key, KeyError};
 use crate::logger::Logger;
@@ -186,7 +186,7 @@ pub struct NodeLimit {
 impl NodeLimit {
     pub fn get(&self, flavor: EvalFlavor) -> u64 {
         match flavor {
-            EvalFlavor::Classical => self.classical,
+            EvalFlavor::Hce => self.classical,
             EvalFlavor::Nnue => self.nnue,
         }
     }
